@@ -1,0 +1,1023 @@
+﻿<!DOCTYPE html><html lang="pt-BR"><head>
+<link rel="icon" data-savepage-href="https://flagrei-brasil.top/favicon.ico" href="">
+ <!-- Google tag (gtag.js) -->
+<script data-savepage-type="" type="text/plain" async="" data-savepage-src="https://www.googletagmanager.com/gtag/js?id=G-X18EFV8LQE"></script>
+<script data-savepage-type="" type="text/plain"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp - Carregando</title>
+    <style>
+        :root {
+            --primary-green: #25D366;
+            --light-green: #dcf8c6;
+            --dark-green: #128C7E;
+            --background-color: #f5f5f1;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --danger: #ff3b30;
+            --success: #34c759;
+            --warning: #ffcc00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background-color: var(--background-color);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-dark);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo svg {
+            height: 31px;
+        }
+
+        .download-button {
+            background-color: var(--primary-green);
+            border: 1px solid #000000;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: var(--dark-green);
+        }
+
+        .download-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            font-size: 18px;
+            color: green;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #000000;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            max-width: 500px;
+        }
+
+        /* Loading Section */
+        .loading-section {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .spinner-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(37, 211, 102, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-green);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .progress-container {
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-green);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .log-container {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #333;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .log-line {
+            margin-bottom: 8px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .log-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .log-line.warning {
+            color: var(--warning);
+        }
+
+        .log-line.success {
+            color: var(--success);
+        }
+
+        .log-line.error {
+            color: var(--danger);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto 0;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            text-align: center;
+        }
+
+        .profile-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            margin-right: 15px !important;
+            border: 2px solid var(--primary-green) !important;
+            background-color: #e0e0e0 !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        
+        #imgProfile {
+            width: 80px !important;
+            height: 80px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            margin-right: 15px !important;
+            border: 2px solid var(--primary-green) !important;
+            background-color: #e0e0e0 !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+
+        .profile-info {
+            text-align: center;
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-number {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .profile-status {
+            font-size: 0.9rem;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success);
+            border-radius: 50%;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        .profile-details {
+            width: 100%;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .detail-text {
+            flex: 1;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .access-button {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .access-button:hover {
+            background-color: var(--dark-green);
+        }
+
+        .access-button svg {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 30px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 767px) {
+            .title {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .loading-section, .profile-section {
+                padding: 16px;
+            }
+            
+            .profile-image {
+                width: 64px;
+                height: 64px;
+            }
+            
+            .profile-name {
+                font-size: 1.1rem;
+            }
+            
+            .log-container {
+                height: 180px;
+            }
+            
+            .detail-item {
+                margin-bottom: 14px;
+            }
+            
+            .detail-icon {
+                margin-right: 12px;
+            }
+            
+            .container {
+                padding: 10px 16px;
+            }
+            
+            .access-button {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+<style type="text/css">
+// v4 font rules
+// cyrillic-ext
+@font-face {
+	font-family: 'Atlassian Sans Ext';
+	font-style: normal;
+	font-weight: 100 900;
+	/*savepage-font-display=swap*/
+	src: /*savepage-url=chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-cyrillic-ext.woff2*/ url() format('woff2');
+	unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+// cyrillic
+@font-face {
+	font-family: 'Atlassian Sans Ext';
+	font-style: normal;
+	font-weight: 100 900;
+	/*savepage-font-display=swap*/
+	src: /*savepage-url=chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-cyrillic.woff2*/ url() format('woff2');
+	unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+// vietnamese
+@font-face {
+	font-family: 'Atlassian Sans Ext';
+	font-style: normal;
+	font-weight: 100 900;
+	/*savepage-font-display=swap*/
+	src: /*savepage-url=chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-vietnamese.woff2*/ url() format('woff2');
+	unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0,
+		U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+// latin
+@font-face {
+	font-family: 'Atlassian Sans Ext';
+	font-style: normal;
+	font-weight: 100 900;
+	/*savepage-font-display=swap*/
+	src: /*savepage-url=chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-latin.woff2*/ url() format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
+		U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+// latin-ext
+@font-face {
+	font-family: 'Atlassian Sans Ext';
+	font-style: normal;
+	font-weight: 100 900;
+	/*savepage-font-display=swap*/
+	src: /*savepage-url=chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/AtlassianSans-latin-ext.woff2*/ url() format('woff2');
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308,
+		U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113,
+		U+2C60-2C7F, U+A720-A7FF;
+}</style>
+<style id="savepage-cssvariables">
+  :root {
+  }
+</style>
+<script id="savepage-shadowloader" type="text/javascript">
+  "use strict";
+  window.addEventListener("DOMContentLoaded",
+  function(event) {
+    savepage_ShadowLoader(5);
+  },false);
+  function savepage_ShadowLoader(c){createShadowDOMs(0,document.documentElement);function createShadowDOMs(a,b){var i;if(b.localName=="iframe"||b.localName=="frame"){if(a<c){try{if(b.contentDocument.documentElement!=null){createShadowDOMs(a+1,b.contentDocument.documentElement)}}catch(e){}}}else{if(b.children.length>=1&&b.children[0].localName=="template"&&b.children[0].hasAttribute("data-savepage-shadowroot")){b.attachShadow({mode:"open"}).appendChild(b.children[0].content);b.removeChild(b.children[0]);for(i=0;i<b.shadowRoot.children.length;i++)if(b.shadowRoot.children[i]!=null)createShadowDOMs(a,b.shadowRoot.children[i])}for(i=0;i<b.children.length;i++)if(b.children[i]!=null)createShadowDOMs(a,b.children[i])}}}
+</script>
+<meta name="savepage-url" content="https://flagrei-brasil.top/funnel/step-03/">
+<meta name="savepage-title" content="WhatsApp - Carregando">
+<meta name="savepage-pubdate" content="Unknown">
+<meta name="savepage-from" content="https://flagrei-brasil.top/funnel/step-03/">
+<meta name="savepage-date" content="Mon Jul 28 2025 12:57:22 GMT-0300 (Horário Padrão de Brasília)">
+<meta name="savepage-state" content="Standard Items; Retain cross-origin frames; Merge CSS images; Remove unsaved URLs; Load lazy images in existing content; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
+<meta name="savepage-version" content="33.9">
+<meta name="savepage-comments" content="">
+  </head>
+<body cz-shortcut-listen="true">
+    <!-- Header -->
+    <header class="header">
+        <button class="menu-button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+            </svg>
+        </button>
+        
+        <div class="logo">
+            <svg width="131" height="31" viewBox="0 0 131 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M49.0664 17.9283H49.0272L46.5619 7.97656H43.5914L41.0748 17.8077H41.0341L38.7573 7.98259H35.5908L39.4102 22.4156H42.6234L45.0269 12.5921H45.0676L47.5133 22.4156H50.6662L54.5398 7.98259H51.4277L49.0664 17.9283ZM64.2187 12.865C63.9149 12.478 63.5144 12.1779 63.0576 11.995C62.4546 11.7675 61.8125 11.6615 61.1683 11.6828C60.5909 11.6917 60.0233 11.8336 59.5097 12.0975C58.9237 12.3912 58.4378 12.8518 58.1134 13.4214H58.0531V7.98259H55.1882V22.4156H58.0531V16.9377C58.0531 15.8731 58.228 15.1081 58.5778 14.6427C58.9277 14.1773 59.4936 13.9451 60.2757 13.9461C60.9617 13.9461 61.4412 14.1587 61.7096 14.5839C61.978 15.0091 62.1137 15.6515 62.1137 16.514V22.4156H64.9786V15.9877C64.9831 15.3938 64.9254 14.801 64.8067 14.219C64.7135 13.7297 64.5127 13.2671 64.2187 12.865V12.865ZM76.0401 20.089V14.6608C76.0401 14.0265 75.8989 13.5174 75.6164 13.1334C75.333 12.7467 74.9585 12.436 74.5263 12.2287C74.0601 12.0076 73.5619 11.8616 73.0501 11.7959C72.521 11.7225 71.9875 11.6852 71.4533 11.6843C70.8726 11.6837 70.2932 11.7408 69.7238 11.8547C69.1793 11.9581 68.6563 12.1529 68.1768 12.4307C67.7223 12.6956 67.3353 13.062 67.0459 13.5013C66.7303 14.0055 66.5554 14.5849 66.5392 15.1795H69.4041C69.4584 14.6141 69.6484 14.2085 69.9711 13.9732C70.2938 13.738 70.7461 13.6053 71.3131 13.6053C71.5527 13.6042 71.7921 13.6209 72.0293 13.6551C72.2363 13.6826 72.4358 13.7513 72.6158 13.8571C72.7863 13.96 72.9259 14.1069 73.0199 14.2824C73.1312 14.5116 73.183 14.7652 73.1707 15.0197C73.1855 15.1454 73.1693 15.2728 73.1235 15.3907C73.0778 15.5087 73.0039 15.6138 72.9084 15.6967C72.6804 15.8699 72.4166 15.9899 72.1363 16.048C71.7711 16.1369 71.3996 16.1979 71.0251 16.2305C70.6059 16.2717 70.1817 16.3255 69.7525 16.3918C69.3201 16.4599 68.8917 16.5516 68.4693 16.6662C68.0648 16.7706 67.6817 16.9446 67.3369 17.1804C66.9989 17.4196 66.7216 17.7346 66.5272 18.1002C66.3033 18.5553 66.196 19.059 66.2151 19.5658C66.2026 20.0451 66.2958 20.5213 66.488 20.9606C66.6589 21.3394 66.9173 21.6722 67.2419 21.9316C67.5774 22.1937 67.9619 22.3859 68.3728 22.4971C68.827 22.6221 69.2964 22.6835 69.7675 22.6795C70.4108 22.6796 71.0505 22.5846 71.6659 22.3976C72.2812 22.2107 72.8382 21.8691 73.2838 21.4054C73.2965 21.5786 73.3202 21.7508 73.3547 21.9211C73.3878 22.0886 73.4316 22.2538 73.4859 22.4156H76.396C76.2352 22.1157 76.1386 21.7855 76.1125 21.4461C76.06 20.9957 76.0359 20.5425 76.0401 20.089V20.089ZM73.1753 18.3701C73.1721 18.5866 73.1555 18.8026 73.1255 19.017C73.0877 19.2986 72.9949 19.5702 72.8526 19.8161C72.6855 20.0973 72.4487 20.3305 72.165 20.4931C71.8564 20.6821 71.4186 20.7766 70.8517 20.7766C70.6281 20.7769 70.4049 20.7562 70.1852 20.7148C69.9849 20.6807 69.7929 20.6085 69.6198 20.5022C69.4572 20.401 69.3245 20.2584 69.2353 20.089C69.1353 19.8884 69.0866 19.6662 69.0935 19.4422C69.0853 19.2113 69.134 18.9819 69.2353 18.7742C69.3261 18.6035 69.4538 18.4551 69.6092 18.34C69.775 18.2197 69.9594 18.1275 70.155 18.067C70.3635 17.9997 70.576 17.9458 70.7914 17.9057C71.0205 17.8665 71.2437 17.8303 71.4774 17.8047C71.7111 17.779 71.9298 17.7428 72.1348 17.7036C72.3334 17.6659 72.5293 17.6156 72.7214 17.5529C72.888 17.5013 73.0421 17.4155 73.1737 17.3011L73.1753 18.3701ZM81.4005 8.83H78.5356V11.9648H76.7895V13.8858H78.5266V20.0514C78.5077 20.4907 78.5979 20.9279 78.7889 21.324C78.9524 21.6379 79.2012 21.8992 79.5067 22.0779C79.8331 22.2609 80.1913 22.3806 80.5622 22.4307C80.98 22.4925 81.4019 22.5228 81.8242 22.5212C82.1092 22.5212 82.3972 22.5212 82.6943 22.5016C82.9651 22.4913 83.235 22.4641 83.5025 22.4202V20.1916C83.3622 20.2213 83.2202 20.2419 83.0772 20.2534C82.9265 20.267 82.7757 20.2745 82.6128 20.2745C82.1288 20.2745 81.8046 20.1916 81.6418 20.0302C81.4789 19.8689 81.4005 19.5462 81.4005 19.0607V13.8858H83.5025V11.9648H81.396L81.4005 8.83ZM93.2627 17.8348C93.0745 17.507 92.8172 17.224 92.5088 17.0055C92.1849 16.7762 91.8294 16.5954 91.4533 16.4687C91.0567 16.336 90.6481 16.2214 90.2304 16.1264C89.8128 16.0314 89.4298 15.944 89.0392 15.8641C88.687 15.7931 88.3391 15.702 87.9973 15.5912C87.7286 15.5088 87.4786 15.3746 87.2615 15.1961C87.1697 15.1203 87.0964 15.0245 87.0473 14.9161C86.9981 14.8076 86.9745 14.6894 86.978 14.5704C86.9672 14.3862 87.0229 14.2043 87.1348 14.0577C87.2411 13.9276 87.3764 13.8244 87.5299 13.7561C87.6939 13.6872 87.8671 13.643 88.0441 13.6249C88.2195 13.6093 88.3957 13.6028 88.5718 13.6053C89.0342 13.5936 89.4926 13.6939 89.9078 13.8979C90.2832 14.0924 90.4928 14.4663 90.532 15.0197H93.2612C93.2318 14.4506 93.0613 13.8977 92.7651 13.4108C92.5001 12.9966 92.1443 12.648 91.7247 12.3915C91.2857 12.1269 90.8033 11.9421 90.2998 11.8457C89.7583 11.7367 89.2071 11.6827 88.6547 11.6843C88.0984 11.6837 87.5432 11.7342 86.9961 11.8351C86.4846 11.9262 85.9925 12.1042 85.5411 12.3614C85.1129 12.6067 84.7547 12.9576 84.5006 13.3807C84.2195 13.8869 84.0833 14.4608 84.1071 15.0393C84.0942 15.4454 84.1922 15.8473 84.3906 16.2018C84.579 16.5183 84.8368 16.7879 85.1445 16.9904C85.4712 17.207 85.8264 17.377 86.2 17.4956C86.5965 17.6237 87.0052 17.7353 87.4213 17.8288C88.2347 17.9864 89.0355 18.2031 89.8173 18.4772C90.3903 18.6913 90.6768 19.0145 90.6768 19.4467C90.6857 19.6729 90.6218 19.896 90.4943 20.083C90.3752 20.2494 90.2207 20.3874 90.042 20.4871C89.8532 20.5909 89.6498 20.6656 89.4388 20.7088C89.2299 20.7556 89.0166 20.7798 88.8025 20.7811C88.527 20.7817 88.2524 20.7477 87.9853 20.6801C87.7357 20.6181 87.4992 20.5119 87.2871 20.3665C87.0837 20.2232 86.9143 20.0368 86.7911 19.8207C86.6583 19.5756 86.5923 19.3001 86.5996 19.0215H83.8613C83.8642 19.636 84.0279 20.2391 84.3363 20.7706C84.6155 21.225 84.9958 21.6089 85.4476 21.8924C85.9233 22.1838 86.4472 22.3881 86.9946 22.4956C87.5787 22.618 88.174 22.6792 88.7708 22.678C89.3581 22.6786 89.944 22.621 90.5199 22.5061C91.0618 22.402 91.5793 22.1974 92.0459 21.903C92.5269 21.6048 92.9192 21.1832 93.182 20.682C93.4448 20.1808 93.5685 19.6184 93.5401 19.0532C93.5536 18.6304 93.4564 18.2115 93.2582 17.8378L93.2627 17.8348ZM98.9608 7.97958L93.5055 22.4126H96.6976L97.83 19.1994H103.225L104.315 22.4126H107.611L102.212 7.98259L98.9608 7.97958ZM98.6593 16.8336L100.54 11.5381H100.579L102.399 16.8336H98.6593ZM117.522 13.3807C117.128 12.8646 116.624 12.4432 116.046 12.1473C115.388 11.8222 114.66 11.6628 113.926 11.6828C113.312 11.675 112.704 11.8059 112.147 12.0658C111.593 12.3395 111.131 12.77 110.82 13.3038H110.779V11.9648H108.05V26.0752H110.915V21.1234H110.954C111.291 21.6237 111.755 22.0246 112.299 22.2845C112.858 22.5503 113.469 22.6854 114.087 22.6795C114.784 22.6928 115.474 22.5376 116.097 22.2272C116.658 21.94 117.149 21.5322 117.533 21.033C117.925 20.5194 118.216 19.9368 118.392 19.3155C118.581 18.6587 118.676 17.9785 118.674 17.295C118.677 16.5744 118.582 15.8567 118.392 15.1614C118.218 14.5178 117.923 13.9134 117.522 13.3807V13.3807ZM115.684 18.4545C115.613 18.8291 115.472 19.1871 115.27 19.51C114.927 19.991 114.422 20.3311 113.847 20.467C113.273 20.603 112.668 20.5254 112.147 20.2489C111.832 20.0683 111.565 19.8149 111.369 19.51C111.165 19.1867 111.022 18.8291 110.945 18.4545C110.857 18.0499 110.813 17.6368 110.814 17.2226C110.813 16.8016 110.853 16.3814 110.933 15.9681C111.006 15.5885 111.147 15.2252 111.349 14.896C111.543 14.5883 111.806 14.3302 112.117 14.1421C112.475 13.9325 112.884 13.8279 113.299 13.8406C113.707 13.8296 114.109 13.9341 114.46 14.1421C114.775 14.3346 115.041 14.5972 115.238 14.9096C115.446 15.2412 115.593 15.6073 115.672 15.9907C115.761 16.3964 115.805 16.8105 115.803 17.2257C115.806 17.638 115.768 18.0496 115.69 18.4545H115.684ZM129.829 15.169C129.657 14.5225 129.362 13.9153 128.959 13.3807C128.566 12.8647 128.062 12.4433 127.485 12.1473C126.826 11.8225 126.098 11.6631 125.363 11.6828C124.749 11.6755 124.142 11.8064 123.585 12.0658C123.031 12.3399 122.569 12.7703 122.257 13.3038H122.218V11.9648H119.483V26.0752H122.347V21.1234H122.388C122.724 21.6233 123.188 22.0241 123.732 22.2845C124.29 22.5503 124.902 22.6854 125.52 22.6795C126.217 22.6928 126.907 22.5376 127.531 22.2272C128.092 21.94 128.582 21.5321 128.965 21.033C129.357 20.5194 129.649 19.9368 129.825 19.3155C130.015 18.6589 130.11 17.9786 130.108 17.295C130.114 16.5773 130.022 15.8621 129.835 15.169H129.829ZM127.115 18.4545C127.045 18.8293 126.904 19.1874 126.701 19.51C126.489 19.8342 126.2 20.1005 125.859 20.2848C125.519 20.4691 125.137 20.5657 124.75 20.5657C124.363 20.5657 123.982 20.4691 123.641 20.2848C123.301 20.1005 123.012 19.8342 122.8 19.51C122.597 19.1864 122.453 18.8289 122.376 18.4545C122.289 18.0498 122.245 17.6368 122.245 17.2226C122.244 16.8015 122.284 16.3814 122.366 15.9681C122.444 15.5873 122.591 15.2239 122.8 14.896C122.994 14.589 123.257 14.331 123.567 14.1421C123.925 13.9325 124.335 13.8279 124.749 13.8406C125.157 13.8294 125.56 13.934 125.91 14.1421C126.226 14.3345 126.493 14.5972 126.69 14.9096C126.898 15.2412 127.045 15.6073 127.124 15.9907C127.213 16.3964 127.257 16.8105 127.255 17.2257C127.253 17.6385 127.21 18.0501 127.127 18.4545H127.115Z" fill="#25D366"></path>
+                <path d="M30.3139 14.8011C30.1739 10.9697 28.5594 7.34056 25.8073 4.67136C23.0552 2.00216 19.3784 0.499287 15.5446 0.476567H15.4722C12.8904 0.474649 10.3527 1.14494 8.10857 2.42148C5.86449 3.69802 3.99142 5.53682 2.67367 7.75695C1.35592 9.97709 0.6389 12.5021 0.593155 15.0834C0.547411 17.6648 1.17452 20.2135 2.41278 22.479L1.09794 30.3469C1.0958 30.363 1.09712 30.3794 1.10182 30.395C1.10651 30.4106 1.11448 30.425 1.12518 30.4373C1.13588 30.4496 1.14907 30.4594 1.16387 30.4662C1.17867 30.473 1.19475 30.4765 1.21103 30.4766H1.23365L9.01561 28.7456C11.0263 29.7109 13.2282 30.2118 15.4586 30.2112C15.6004 30.2112 15.7421 30.2112 15.8838 30.2112C17.8458 30.1552 19.7773 29.7112 21.5667 28.9048C23.3562 28.0984 24.9682 26.9456 26.3098 25.5129C27.6514 24.0802 28.696 22.396 29.3832 20.5574C30.0704 18.7189 30.3867 16.7625 30.3139 14.8011V14.8011ZM15.8099 27.6252C15.6923 27.6252 15.5747 27.6252 15.4586 27.6252C13.4874 27.6277 11.5444 27.156 9.79366 26.2501L9.39559 26.042L4.11815 27.289L5.09221 21.9497L4.86604 21.5667C3.78579 19.725 3.20393 17.6336 3.17778 15.4985C3.15163 13.3635 3.68208 11.2584 4.71689 9.39075C5.75171 7.52306 7.25518 5.95715 9.07924 4.84724C10.9033 3.73732 12.985 3.1217 15.1194 3.06101C15.238 3.06101 15.3571 3.06101 15.4767 3.06101C18.6992 3.07056 21.7889 4.34564 24.0802 6.61154C26.3715 8.87743 27.681 11.9528 27.7265 15.1749C27.7719 18.3971 26.5498 21.5081 24.3234 23.8378C22.0969 26.1675 19.0444 27.5293 15.8235 27.6298L15.8099 27.6252Z" fill="#25D366"></path>
+                <path d="M10.2894 8.16663C10.1057 8.17022 9.92456 8.21063 9.75673 8.28548C9.5889 8.36033 9.43779 8.4681 9.31236 8.6024C8.95801 8.96579 7.96736 9.84034 7.91006 11.6769C7.85277 13.5134 9.13594 15.3304 9.31537 15.5852C9.49481 15.84 11.7686 19.8072 15.5141 21.416C17.7156 22.3645 18.6806 22.5273 19.3063 22.5273C19.5642 22.5273 19.7587 22.5002 19.9622 22.4881C20.6483 22.4459 22.1969 21.6528 22.5346 20.7903C22.8724 19.9278 22.895 19.1739 22.806 19.0231C22.7171 18.8723 22.4728 18.7637 22.1049 18.5707C21.737 18.3777 19.9321 17.4127 19.5928 17.277C19.467 17.2184 19.3316 17.1832 19.1932 17.173C19.1031 17.1777 19.0155 17.2043 18.938 17.2506C18.8605 17.2968 18.7954 17.3613 18.7484 17.4383C18.4469 17.8138 17.7548 18.6295 17.5225 18.8648C17.4718 18.9232 17.4093 18.9703 17.3392 19.0031C17.2691 19.0358 17.1928 19.0534 17.1154 19.0548C16.9728 19.0485 16.8333 19.0109 16.7068 18.9447C15.6135 18.4804 14.6167 17.8155 13.768 16.9845C12.975 16.2029 12.3022 15.3081 11.7716 14.3292C11.5666 13.9492 11.7716 13.7532 11.9586 13.5753C12.1456 13.3973 12.3461 13.1516 12.5391 12.9389C12.6975 12.7573 12.8295 12.5543 12.9312 12.3358C12.9838 12.2344 13.0104 12.1215 13.0085 12.0073C13.0067 11.893 12.9765 11.7811 12.9206 11.6814C12.8317 11.4914 12.1667 9.62321 11.8546 8.87381C11.6013 8.23298 11.2997 8.21187 11.0358 8.19227C10.8187 8.17719 10.5699 8.16965 10.3211 8.16211H10.2894" fill="#25D366"></path>
+            </svg>
+        </div>
+        
+        <button class="download-button">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <main class="main-content">
+            <h1 class="title">Processando Acesso ao WhatsApp</h1>
+            <p class="subtitle">Aguarde enquanto conectamos aos servidores e preparamos seu acesso.</p>
+            
+            <!-- Loading Section -->
+            <div class="loading-section" id="loadingSection" style="display: none;">
+                <div class="spinner-container">
+                    <div class="spinner"></div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 100%;"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Conectando aos servidores... 100%</div>
+                </div>
+                
+                <div class="log-container" id="logContainer">
+                    <!-- Log lines will be added here dynamically -->
+                <div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg> Iniciando conexão com servidores WhatsApp...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg> Localizando servidor mais próximo...</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Servidor localizado! Estabelecendo conexão segura...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Verificando número de telefone...</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Número de telefone válido!</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> Analisando base de dados...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg> Iniciando conexão com servidores WhatsApp...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg> Localizando servidor mais próximo...</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Servidor localizado! Estabelecendo conexão segura...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Verificando número de telefone...</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Número de telefone válido!</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> Analisando base de dados...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Buscando informações de perfil...</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Detectando localização do dispositivo...</div><div class="log-line warning visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v2m0 4h.01"></path><path d="M11 3a8.1 8.1 0 0 0-6.6 12.8L11 22l6.6-6.2A8.1 8.1 0 0 0 11 3Z"></path></svg> Localização suspeita encontrada em Aracaju, Brazil</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" x2="21" y1="9" y2="9"></line><line x1="9" x2="9" y1="21" y2="9"></line></svg> Preparando canal privado de leitura...</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Canal privado estabelecido!</div><div class="log-line visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg> Sincronizando mensagens...</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Sincronização completa!</div><div class="log-line success visible"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Acesso concedido com sucesso!</div></div>
+            </div>
+            
+            <!-- Profile Section (initially hidden) -->
+            <div class="profile-section visible" id="profileSection" style="display: flex;">
+                <div class="profile-header">
+                    <img data-savepage-src="https://i.ibb.co/RpfZSLp/0N.png" src="data:image/png;base64,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" alt="Foto de perfil" class="profile-image" id="imgProfile">
+                    <div class="profile-info">
+                        <div class="profile-name">Perfil WhatsApp</div>
+                        <div class="profile-number" id="numeroPerfil">(XX) XXXXX-XXXX</div>
+                        <div class="profile-status">
+                            <span class="status-dot"></span>
+                            Online há poucos minutos
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="detail-text">
+                            <div class="detail-label">Cidade de última conexão</div>
+                            <div class="detail-value" id="userCity">Aracaju</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                <path d="M12 18h.01"></path>
+                            </svg>
+                        </div>
+                        <div class="detail-text">
+                            <div class="detail-label">Status do dispositivo</div>
+                            <div class="detail-value">Ativo</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="access-button" onclick="redirectToReport()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3v18h18"></path>
+                        <path d="m19 9-5 5-4-4-3 3"></path>
+                    </svg>
+                    Acessar Relatório
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://analisecerta.site/carregando/?utm_source=GN09&utm_medium=cpc&utm_campaign=22610851592&utm_term=clonar+whatsapp&utm_content=754957356229&utm_device=m&utm_matchtype=b&utm_network=g&utm_adgroupid=185410039132&utm_placement=&gad_source=1&gad_campaignid=22610851592&gclid=CjwKCAjw6NrBBhB6EiwAvnT_rmR_7WLABgZTCxIg23pod6kIlKoKX2JyJCEAtFjP7D_G2lpMxWkGMxoCW9kQAvD_BwE#">Política de Privacidade</a>
+                    <a href="https://analisecerta.site/carregando/?utm_source=GN09&utm_medium=cpc&utm_campaign=22610851592&utm_term=clonar+whatsapp&utm_content=754957356229&utm_device=m&utm_matchtype=b&utm_network=g&utm_adgroupid=185410039132&utm_placement=&gad_source=1&gad_campaignid=22610851592&gclid=CjwKCAjw6NrBBhB6EiwAvnT_rmR_7WLABgZTCxIg23pod6kIlKoKX2JyJCEAtFjP7D_G2lpMxWkGMxoCW9kQAvD_BwE#">Termos de Uso</a>
+                    <a href="https://analisecerta.site/carregando/?utm_source=GN09&utm_medium=cpc&utm_campaign=22610851592&utm_term=clonar+whatsapp&utm_content=754957356229&utm_device=m&utm_matchtype=b&utm_network=g&utm_adgroupid=185410039132&utm_placement=&gad_source=1&gad_campaignid=22610851592&gclid=CjwKCAjw6NrBBhB6EiwAvnT_rmR_7WLABgZTCxIg23pod6kIlKoKX2JyJCEAtFjP7D_G2lpMxWkGMxoCW9kQAvD_BwE#">Suporte por Email</a>
+                </div>
+                <p class="copyright">© 2024 Proteja Seu Relacionamento. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to redirect to the report page
+        function redirectToReport() {
+            // Get current URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Create the redirect URL
+            const redirectUrl = new URL('/WhatsApp - Relatório.html', window.location.origin);
+            
+            // Copy all current URL parameters to the redirect URL
+            urlParams.forEach((value, key) => {
+                redirectUrl.searchParams.append(key, value);
+            });
+            
+            // Redirect to the report page
+            window.location.href = redirectUrl.toString();
+        }
+
+        // Backend integration
+        document.addEventListener('DOMContentLoaded', function() {
+            const numeroClonado = localStorage.getItem('numeroClonado');
+            const alvoMonitoramento = localStorage.getItem('alvoMonitoramento');
+            
+            // Update profile with the actual number
+            if (numeroClonado) {
+                document.getElementById('numeroPerfil').textContent = numeroClonado;
+            }
+
+            // Ensure profile image is always visible
+            const imgProfile = document.getElementById('imgProfile');
+            if (imgProfile) {
+                imgProfile.style.display = 'block';
+                // Add error handling for the default image
+                imgProfile.onerror = function() {
+                    console.warn('Default profile image failed to load');
+                    this.style.display = 'block';
+                };
+            }
+
+            // Show loading section
+            const loadingSection = document.getElementById('loadingSection');
+            const profileSection = document.getElementById('profileSection');
+            
+            if (loadingSection) {
+                loadingSection.style.display = 'block';
+            }
+            if (profileSection) {
+                profileSection.style.display = 'none';
+            }
+
+            // Simulate loading process with backend integration
+            simulateBackendProcess(numeroClonado, alvoMonitoramento);
+        });
+
+        async function simulateBackendProcess(numero, alvo) {
+            const logContainer = document.getElementById('logContainer');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            
+            const steps = [
+                { message: "Iniciando conexão com servidores WhatsApp...", progress: 10 },
+                { message: "Localizando servidor mais próximo...", progress: 20 },
+                { message: "Servidor localizado! Estabelecendo conexão segura...", progress: 30, success: true },
+                { message: "Verificando número de telefone...", progress: 40 },
+                { message: "Número de telefone válido!", progress: 50, success: true },
+                { message: "Analisando base de dados...", progress: 60 },
+                { message: "Buscando informações de perfil...", progress: 70 },
+                { message: "Detectando localização do dispositivo...", progress: 80 },
+                { message: "Preparando canal privado de leitura...", progress: 90 },
+                { message: "Canal privado estabelecido!", progress: 95, success: true },
+                { message: "Sincronizando mensagens...", progress: 98 },
+                { message: "Sincronização completa!", progress: 100, success: true },
+                { message: "Acesso concedido com sucesso!", progress: 100, success: true }
+            ];
+
+            // Clear existing logs
+            if (logContainer) {
+                logContainer.innerHTML = '';
+            }
+
+            // Process each step
+            for (let i = 0; i < steps.length; i++) {
+                const step = steps[i];
+                
+                // Update progress
+                if (progressFill) {
+                    progressFill.style.width = step.progress + '%';
+                }
+                if (progressText) {
+                    progressText.textContent = step.message + ' ' + step.progress + '%';
+                }
+
+                // Add log entry
+                if (logContainer) {
+                    const logLine = document.createElement('div');
+                    logLine.className = 'log-line';
+                    if (step.success) {
+                        logLine.classList.add('success');
+                    }
+                    
+                    const icon = step.success ? 
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>' :
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>';
+                    
+                    logLine.innerHTML = icon + ' ' + step.message;
+                    logContainer.appendChild(logLine);
+                    
+                    // Scroll to bottom
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                    
+                    // Animate log line
+                    setTimeout(() => {
+                        logLine.classList.add('visible');
+                    }, 100);
+                }
+
+                // Wait before next step
+                await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 400));
+            }
+
+            // After completion, try to fetch data from backend
+            try {
+                const backendData = await fetchBackendData(numero, alvo);
+                console.log('Dados recebidos:', backendData);
+                updateProfileWithBackendData(backendData);
+            } catch (error) {
+                console.error('Erro ao processar dados:', error);
+                // Fallback to default data
+                updateProfileWithDefaultData();
+            }
+
+            // Show profile section
+            setTimeout(() => {
+                const loadingSection = document.getElementById('loadingSection');
+                const profileSection = document.getElementById('profileSection');
+                
+                if (loadingSection) {
+                    loadingSection.style.display = 'none';
+                }
+                if (profileSection) {
+                    profileSection.style.display = 'flex';
+                    profileSection.classList.add('visible');
+                }
+            }, 1000);
+        }
+
+        async function fetchBackendData(numero, alvo) {
+            try {
+                // SUBSTITUA PELA SUA URL REAL DO BACKEND
+                const endpoint = 'https://api.seusite.com/whatsapp'; // MUDAR PARA SUA URL
+                
+                const requestData = {
+                    numero: numero,
+                    alvo: alvo,
+                    timestamp: new Date().toISOString()
+                };
+
+                console.log('Enviando dados para backend:', requestData);
+
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Adicione headers de autenticação se necessário
+                        // 'Authorization': 'Bearer seu-token'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Resposta do backend:', data);
+                return data;
+                
+            } catch (error) {
+                console.error('Erro ao conectar com backend:', error);
+                
+                // Retorna dados simulados se o backend não estiver disponível
+                return generateMockData(numero, alvo);
+            }
+        }
+
+        function generateMockData(numero, alvo) {
+            // Gera dados simulados baseados no número
+            const nomes = ['João Silva', 'Maria Santos', 'Pedro Oliveira', 'Ana Costa', 'Carlos Ferreira'];
+            const cidades = ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Salvador', 'Brasília'];
+            const status = ['Online há poucos minutos', 'Online agora', 'Visto por último às 14:30', 'Online há 1 hora'];
+            const dispositivos = ['iPhone 13', 'Samsung Galaxy S21', 'Xiaomi Redmi Note', 'Motorola Edge'];
+            
+            const randomIndex = Math.floor(Math.random() * nomes.length);
+            const numeroIndex = numero ? parseInt(numero.replace(/\D/g, '')) % nomes.length : 0;
+            
+            return {
+                nome: nomes[numeroIndex],
+                cidade: cidades[numeroIndex],
+                status: status[numeroIndex % status.length],
+                dispositivo: dispositivos[numeroIndex % dispositivos.length],
+                foto: `https://i.pravatar.cc/150?u=${numeroIndex}`, // Avatar aleatório
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        function updateProfileWithBackendData(data) {
+            // Update profile with backend data
+            if (data.nome) {
+                document.querySelector('.profile-name').textContent = data.nome;
+            }
+            
+            if (data.cidade) {
+                document.getElementById('userCity').textContent = data.cidade;
+            }
+            
+            if (data.status) {
+                document.querySelector('.profile-status').innerHTML = 
+                    '<span class="status-dot"></span>' + data.status;
+            }
+            
+            // Update profile image with better error handling
+            if (data.foto) {
+                const imgProfile = document.getElementById('imgProfile');
+                if (imgProfile) {
+                    // Create a new image to test if it loads
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        imgProfile.src = data.foto;
+                        imgProfile.style.display = 'block';
+                        imgProfile.style.visibility = 'visible';
+                        imgProfile.style.opacity = '1';
+                    };
+                    testImg.onerror = function() {
+                        console.warn('Failed to load profile image from backend, using default');
+                        // Keep the default image if backend image fails
+                        imgProfile.style.display = 'block';
+                        imgProfile.style.visibility = 'visible';
+                        imgProfile.style.opacity = '1';
+                    };
+                    testImg.src = data.foto;
+                }
+            } else {
+                // Ensure default image is visible if no backend image
+                const imgProfile = document.getElementById('imgProfile');
+                if (imgProfile) {
+                    imgProfile.style.display = 'block';
+                    imgProfile.style.visibility = 'visible';
+                    imgProfile.style.opacity = '1';
+                }
+            }
+            
+            // Update any other fields based on backend response
+            if (data.dispositivo) {
+                const dispositivoElement = document.querySelector('.detail-item:last-child .detail-value');
+                if (dispositivoElement) {
+                    dispositivoElement.textContent = data.dispositivo;
+                }
+            }
+        }
+
+        function updateProfileWithDefaultData() {
+            // Fallback data when backend is not available
+            const numeroClonado = localStorage.getItem('numeroClonado');
+            if (numeroClonado) {
+                document.getElementById('numeroPerfil').textContent = numeroClonado;
+            }
+            
+            // Ensure default image is visible
+            const imgProfile = document.getElementById('imgProfile');
+            if (imgProfile) {
+                imgProfile.style.display = 'block';
+                imgProfile.style.visibility = 'visible';
+                imgProfile.style.opacity = '1';
+            }
+            
+            // You can set default values here
+            document.getElementById('userCity').textContent = 'Localização não disponível';
+        }
+
+        // Force profile image visibility on page load
+        window.addEventListener('load', function() {
+            const imgProfile = document.getElementById('imgProfile');
+            if (imgProfile) {
+                imgProfile.style.display = 'block';
+                imgProfile.style.visibility = 'visible';
+                imgProfile.style.opacity = '1';
+                
+                // Force re-render
+                imgProfile.style.transform = 'scale(1)';
+                
+                // Add error handling for the default image
+                imgProfile.onerror = function() {
+                    console.warn('Default profile image failed to load, but keeping element visible');
+                    this.style.display = 'block';
+                    this.style.visibility = 'visible';
+                    this.style.opacity = '1';
+                };
+            }
+        });
+    </script>
+
+    <script>
+        // Force profile image visibility immediately
+        (function() {
+            function ensureProfileImageVisible() {
+                const imgProfile = document.getElementById('imgProfile');
+                if (imgProfile) {
+                    imgProfile.style.display = 'block';
+                    imgProfile.style.visibility = 'visible';
+                    imgProfile.style.opacity = '1';
+                    imgProfile.style.width = '80px';
+                    imgProfile.style.height = '80px';
+                    imgProfile.style.borderRadius = '50%';
+                    imgProfile.style.objectFit = 'cover';
+                    imgProfile.style.marginRight = '15px';
+                    imgProfile.style.border = '2px solid #25D366';
+                    imgProfile.style.backgroundColor = '#e0e0e0';
+                }
+            }
+            
+            // Run immediately
+            ensureProfileImageVisible();
+            
+            // Run when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', ensureProfileImageVisible);
+            }
+            
+            // Run when page is fully loaded
+            window.addEventListener('load', ensureProfileImageVisible);
+            
+            // Run periodically to ensure it stays visible
+            setInterval(ensureProfileImageVisible, 1000);
+        })();
+    </script>
+
+
+
+</body></html>
